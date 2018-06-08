@@ -2,26 +2,30 @@
 
 int replace();
 
-/*replaces each string of blanks in an input with the minimum
-number of tabs and blanks to achieve the same spacing*/
+/*replaces each string of blanks in an input with the
+minimum number of tabs and spaces to achieve the same
+spacing, assuming a tab equals four spaces*/
 main()
 {
-	int c, i;
+	int c, i, blanks, spaces, tabs;
 
-	i = 0;
+	blanks = 0;
 	while ((c = getchar()) != '\n') {
 		if (c == ' ' || c == '\t') {
 			if (c == ' ')
-				++i;
+				++blanks;
 			else
-				i = i + 4;
+				blanks = blanks + 4;
 			
 		}
 		else {
-			/*code to caclulate the correct number of tabs
-			and blanks using i and then print them goes here*/
-			printf("%d", i);
-			i = 0;
+			spaces = blanks % 4;
+			tabs = (blanks - spaces) / 4;
+			for (i = 0; i < spaces; ++i)
+				printf(" ");
+			for (i = 0; i < tabs; ++i)
+				printf("\t");
+			blanks = 0;
 			putchar(c);
 		}
 	}

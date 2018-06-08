@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-/*replaces tabs in input with blanks*/
+/*replaces each tab in an input with four blanks*/
 main()
 {
 	int c;
